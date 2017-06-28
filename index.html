@@ -31,18 +31,21 @@
         <div class="tasks">
             <span class="no-task-tip">还没有添加任何任务</span>
             <ul class="todo-list">
-                <li class="todo completed">
+                <!--需求1：列表渲染-->
+                <!--                
+                    <li class="todo completed">
+                        <div class="view">
+                            <input class="toggle" type="checkbox" />
+                            <label>吃饭睡觉打豆豆</label>
+                            <button class="destroy"></button>
+                        </div>
+                        <input class="edit" type="text" />
+                    </li>
+                -->
+                <li class="todo" v-for="item in tdlist">
                     <div class="view">
                         <input class="toggle" type="checkbox" />
-                        <label>吃饭睡觉打豆豆</label>
-                        <button class="destroy"></button>
-                    </div>
-                    <input class="edit" type="text" />
-                </li>
-                <li class="todo">
-                    <div class="view">
-                        <input class="toggle" type="checkbox" />
-                        <label>妙味课堂todolist</label>
+                        <label>{{ item.title }}</label>
                         <button class="destroy"></button>
                     </div>
                     <input class="edit" type="text" />
