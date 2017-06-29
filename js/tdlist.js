@@ -31,6 +31,14 @@ new Vue({
             }else{
                 alert("请输入内容内容!");
             }
+        },
+        // 需求5:删除任务
+        delTodo:function(item){
+            r = confirm("您确定要删除这条任务吗?");
+            if(r){
+                var index = this.tdlist.indexOf(item);
+                this.tdlist.splice(index,1);
+            }
         }
     }
 })

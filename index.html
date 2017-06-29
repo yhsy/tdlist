@@ -54,7 +54,8 @@
                         <!--需求4:任务选中状态-->
                         <input class="toggle" type="checkbox" v-model="item.isChecked" />
                         <label>{{ item.title }}</label>
-                        <button class="destroy"></button>
+                        <!--需求5:删除任务-->
+                        <button class="destroy" @click="delTodo(item)" ></button>
                     </div>
                     <input class="edit" type="text" />
                 </li>
