@@ -11,6 +11,21 @@ var list = [
 new Vue({
     el:".main",
     data:{
-        tdlist:list
+        tdlist:list,
+        // 需求2:添加任务--任务内容
+        todo:""
+    },
+    methods:{
+        // 需求2:添加任务--函数
+        addTodo:function(){
+            if(this.todo){
+                this.tdlist.push({
+                    title:this.todo
+                })
+                this.todo = "";
+            }else{
+                alert("请输入内容内容!");
+            }
+        }
     }
 })
