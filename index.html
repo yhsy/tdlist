@@ -49,15 +49,29 @@
                 -->
 
                 <!--需求4:任务选中状态(文字/按钮样式)-->
-                <li class="todo" v-for="item in tdlist" v-bind:class="{completed:item.isChecked}" >
+                <!--需求6:②编辑任务-添加编辑样式editing-->
+                <li class="todo" v-for="item in tdlist" v-bind:class="{completed:item.isChecked,editing:item===etodo}" >
                     <div class="view">
                         <!--需求4:任务选中状态-->
                         <input class="toggle" type="checkbox" v-model="item.isChecked" />
-                        <label>{{ item.title }}</label>
+                        <!--需求6:①编辑任务-双击任务-->
+                        <label @dblclick="editTodo(item)">{{ item.title }}</label>
                         <!--需求5:删除任务-->
                         <button class="destroy" @click="delTodo(item)" ></button>
                     </div>
-                    <input class="edit" type="text" />
+                    <!--需求6:③编辑任务-编辑框内默认的任务内容-->
+                    <!--需求6:④编辑任务-默认获取编辑框焦点-->
+                    <!--需求6:⑤编辑任务-按Enter键或失去焦点,编辑完成-->
+                    <!--需求6:⑤编辑任务-按ESC键,取消编辑任务-->
+                    <input 
+                        class="edit" 
+                        type="text" 
+                        v-model="item.title"
+                        v-focus="etodo===item"
+                        @blur="editTodoEnd"
+                        @keyup.enter="editTodoEnd"
+                        @keyup.esc="editTodoCancel(item)"
+                    />
                 </li>
             </ul>
         </div>
