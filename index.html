@@ -22,7 +22,8 @@
             @keyup.enter="addTodo"
             v-model="todo"
         />
-        <ul class="task-count">
+        <!--需求3:显示隐藏任务提示-->
+        <ul class="task-count" v-show="tdlist.length">
             <li>1个任务未完成</li>
             <li class="action">
                 <a class="active" href="#">所有任务</a>
@@ -32,7 +33,8 @@
         </ul>
         <h3 class="big-title">任务列表：</h3>
         <div class="tasks">
-            <span class="no-task-tip">还没有添加任何任务</span>
+            <!--需求3:显示隐藏任务提示-->
+            <span class="no-task-tip" v-show="!tdlist.length">还没有添加任何任务</span>
             <ul class="todo-list">
                 <!--需求1：列表渲染-->
                 <!--                
