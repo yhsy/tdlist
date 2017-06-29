@@ -1,10 +1,13 @@
 // 需求1:列表渲染
 var list = [
     // {
-    //     title:"吃饭睡觉打豆豆"
+    //     title:"吃饭睡觉打豆豆",
+    //     // 选中状态
+    //     isChecked:false
     // },
     // {
-    //     title:"妙味课堂todolist"
+    //     title:"妙味课堂todolist",
+    //     isChecked:true
     // }
 ]
 
@@ -20,7 +23,9 @@ new Vue({
         addTodo:function(){
             if(this.todo){
                 this.tdlist.push({
-                    title:this.todo
+                    title:this.todo,
+                    // 需求4:选中状态
+                    isChecked:false
                 })
                 this.todo = "";
             }else{

@@ -47,9 +47,12 @@
                         <input class="edit" type="text" />
                     </li>
                 -->
-                <li class="todo" v-for="item in tdlist">
+
+                <!--需求4:任务选中状态(文字/按钮样式)-->
+                <li class="todo" v-for="item in tdlist" v-bind:class="{completed:item.isChecked}" >
                     <div class="view">
-                        <input class="toggle" type="checkbox" />
+                        <!--需求4:任务选中状态-->
+                        <input class="toggle" type="checkbox" v-model="item.isChecked" />
                         <label>{{ item.title }}</label>
                         <button class="destroy"></button>
                     </div>
