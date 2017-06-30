@@ -22,6 +22,14 @@ new Vue({
         // 需求6:⑥.编辑任务--记录编辑前的任务标题
         beforeTitle:""
     },
+    // 需求7:统计未完成任务数
+    computed:{
+        noCheckedLen:function(){
+            return this.tdlist.filter(function(item){
+                return !item.isChecked
+            }).length
+        }
+    },
     methods:{
         // 需求2:添加任务--函数
         addTodo:function(){
