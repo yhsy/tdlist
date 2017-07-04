@@ -34,9 +34,10 @@
                 {{ noCheckedLen }}个任务未完成
             </li>
             <li class="action">
-                <a class="active" href="#">所有任务</a>
-                <a href="#">未完成的任务</a>
-                <a href="#">完成的任务</a>
+                <!--需求9:点击按钮,切换不同的hash值-->
+                <a class="active" href="#all">所有任务</a>
+                <a href="#unfinished">未完成的任务</a>
+                <a href="#finished">完成的任务</a>
             </li>
         </ul>
         <h3 class="big-title">任务列表：</h3>
@@ -58,7 +59,8 @@
 
                 <!--需求4:任务选中状态(文字/按钮样式)-->
                 <!--需求6:②编辑任务-添加编辑样式editing-->
-                <li class="todo" v-for="item in tdlist" v-bind:class="{completed:item.isChecked,editing:item===etodo}" >
+                <!--需求9:④.通过hash值,过滤任务列表数据-->
+                <li class="todo" v-for="item in hashFilterList" v-bind:class="{completed:item.isChecked,editing:item===etodo}" >
                     <div class="view">
                         <!--需求4:任务选中状态-->
                         <input class="toggle" type="checkbox" v-model="item.isChecked" />
